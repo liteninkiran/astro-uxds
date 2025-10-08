@@ -1,5 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, signal, WritableSignal, OnInit } from '@angular/core';
-import { Contact } from '../../core/models/alert.model';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, inject, Signal } from '@angular/core';
+import { Contact } from '../../core/models/contact.model';
+import { ContactService } from '../../core/services/contact.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+const options = { initialValue: [] };
 
 @Component({
     selector: 'app-dashboard',
@@ -9,7 +13,9 @@ import { Contact } from '../../core/models/alert.model';
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Dashboard implements OnInit {
-    public contacts: WritableSignal<Contact[]> = signal([]);
+    private contactService = inject(ContactService);
+
+    public contacts: Signal<Contact[]> = toSignal(this.contactService.getContacts(), options);
 
     public ngOnInit(): void {}
 }
