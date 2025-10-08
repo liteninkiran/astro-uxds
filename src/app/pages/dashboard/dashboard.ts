@@ -1,4 +1,5 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, signal, WritableSignal, OnInit } from '@angular/core';
+import { Contact } from '../../core/models/alert.model';
 
 @Component({
     selector: 'app-dashboard',
@@ -7,4 +8,8 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     imports: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class Dashboard {}
+export class Dashboard implements OnInit {
+    public contacts: WritableSignal<Contact[]> = signal([]);
+
+    public ngOnInit(): void {}
+}
