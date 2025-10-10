@@ -1,10 +1,26 @@
 import { Component, input } from '@angular/core';
-import { RUX_IMPORTS } from '../../core/rux.imports';
 import { Contact } from '../../core/models/contact.model';
+import {
+    RuxTable,
+    RuxTableBody,
+    RuxTableCell,
+    RuxTableHeader,
+    RuxTableHeaderCell,
+    RuxTableHeaderRow,
+    RuxTableRow,
+} from '@astrouxds/angular';
 
 @Component({
     selector: 'app-contact-list',
-    imports: [RUX_IMPORTS],
+    imports: [
+        RuxTable,
+        RuxTableHeader,
+        RuxTableHeaderRow,
+        RuxTableHeaderCell,
+        RuxTableBody,
+        RuxTableRow,
+        RuxTableCell,
+    ],
     templateUrl: './contact-list.html',
     styleUrl: './contact-list.scss',
 })

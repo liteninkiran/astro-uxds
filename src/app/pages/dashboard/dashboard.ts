@@ -3,7 +3,7 @@ import { Contact } from '../../core/models/contact.model';
 import { ContactService } from '../../core/services/contact.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ContactList } from '../../components/contact-list/contact-list';
-import { RUX_IMPORTS } from '../../core/rux.imports';
+import { RuxContainer } from '@astrouxds/angular';
 
 const options = { initialValue: [] };
 
@@ -11,7 +11,7 @@ const options = { initialValue: [] };
     selector: 'app-dashboard',
     templateUrl: './dashboard.html',
     styleUrl: './dashboard.scss',
-    imports: [ContactList, RUX_IMPORTS],
+    imports: [ContactList, RuxContainer],
 })
 export class Dashboard implements OnInit {
     private contactService = inject(ContactService);
