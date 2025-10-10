@@ -1,7 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, inject, Signal } from '@angular/core';
+import { Component, OnInit, inject, Signal } from '@angular/core';
 import { Contact } from '../../core/models/contact.model';
 import { ContactService } from '../../core/services/contact.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ContactList } from '../../components/contact-list/contact-list';
+import { RUX_IMPORTS } from '../../core/rux.imports';
 
 const options = { initialValue: [] };
 
@@ -9,8 +11,7 @@ const options = { initialValue: [] };
     selector: 'app-dashboard',
     templateUrl: './dashboard.html',
     styleUrl: './dashboard.scss',
-    imports: [],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [ContactList, RUX_IMPORTS],
 })
 export class Dashboard implements OnInit {
     private contactService = inject(ContactService);
