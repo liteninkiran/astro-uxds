@@ -1,1 +1,51 @@
-<p>contact-list works!</p>
+<rux-table>
+    <!-- Table Header -->
+    <rux-table-header>
+        <rux-table-header-row>
+            <rux-table-header-cell>ID</rux-table-header-cell>
+            <rux-table-header-cell>Status</rux-table-header-cell>
+            <rux-table-header-cell>Name</rux-table-header-cell>
+            <rux-table-header-cell>Ground</rux-table-header-cell>
+            <rux-table-header-cell>Satellite</rux-table-header-cell>
+            <rux-table-header-cell>Equipment</rux-table-header-cell>
+            <rux-table-header-cell>State</rux-table-header-cell>
+            <rux-table-header-cell>Step</rux-table-header-cell>
+            <rux-table-header-cell>Detail</rux-table-header-cell>
+            <rux-table-header-cell>BeginTimestamp</rux-table-header-cell>
+            <rux-table-header-cell>EndTimestamp</rux-table-header-cell>
+            <rux-table-header-cell>Latitude</rux-table-header-cell>
+            <rux-table-header-cell>Longitude</rux-table-header-cell>
+            <rux-table-header-cell>Azimuth</rux-table-header-cell>
+            <rux-table-header-cell>Elevation</rux-table-header-cell>
+            <rux-table-header-cell>Resolution</rux-table-header-cell>
+            <rux-table-header-cell>Resolution Status</rux-table-header-cell>
+            <rux-table-header-cell>Alert Count</rux-table-header-cell>
+        </rux-table-header-row>
+    </rux-table-header>
+
+    <!-- Table Body -->
+    <rux-table-body>
+        @for (contact of contacts(); track contact._id) {
+            <rux-table-row>
+                <rux-table-cell>{{ contact.contactId }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactStatus }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactName }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactGround }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactSatellite }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactEquipment }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactState }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactStep }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactDetail }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactBeginTimestamp }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactEndTimestamp }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactLatitude }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactLongitude }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactAzimuth }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactElevation }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactResolution }}</rux-table-cell>
+                <rux-table-cell>{{ contact.contactResolutionStatus }}</rux-table-cell>
+                <rux-table-cell>{{ contact.alerts.length }}</rux-table-cell>
+            </rux-table-row>
+        }
+    </rux-table-body>
+</rux-table>

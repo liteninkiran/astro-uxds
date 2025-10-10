@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RUX_IMPORTS } from '../../core/rux.imports';
+import { Contact } from '../../core/models/contact.model';
 
 @Component({
     selector: 'app-contact-list',
@@ -7,4 +8,6 @@ import { RUX_IMPORTS } from '../../core/rux.imports';
     templateUrl: './contact-list.html',
     styleUrl: './contact-list.scss',
 })
-export class ContactList {}
+export class ContactList {
+    public contacts = input.required<Contact[]>();
+}
